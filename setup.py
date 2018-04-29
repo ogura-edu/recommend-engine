@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 
 setup(name='recommend_engine',
       version='1.0',
@@ -6,4 +6,7 @@ setup(name='recommend_engine',
       install_requires=['numpy', 'matplotlib'],
       url='https://github.com/ogura-edu/recommend-engine',
       author='Masayoshi Ogura',
-      author_email='ogura176578@gmail.com')
+      author_email='ogura176578@gmail.com',
+      entry_points={
+          'console_scripts': ['recommend = main:main']
+      })
