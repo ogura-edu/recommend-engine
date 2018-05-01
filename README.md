@@ -20,13 +20,16 @@
 
 [MovieLens 100K Dataset](http://grouplens.org/datasets/movielens/)
 
-### How to use
+### 使い方
 
 ```
 $ pip install recommend-engine
 ```
 
-#### evaluate performance
+#### モデル評価
+
+5-fold cross validationを使ってPR曲線のAUCを計算
+
 ```
 $ python main.py evaluate sgd 10 --epoch 100
 $ python main.py evaluate als 10 --epoch 10
@@ -34,7 +37,10 @@ $ python main.py evaluate als 10 --epoch 10
 >AUC average: 0.7865845539854988
 ```
 
-#### recommend movies to a user
+#### レコメンド
+
+全データを使ってトレーニングした後、ユーザーIDとレコメンドするアイテム数を指定して予測評価値の高い順に表示
+
 ```
 $ python main.py recommend sgd 10 --epoch 100
 
@@ -54,3 +60,11 @@ $ python main.py recommend sgd 10 --epoch 100
 >                  9 |     1636 |    5.055601132655621
 ```
 
+
+### その他参考にしたサイト
+
+[https://takuti.me/note/coursera-recommender-systems/](https://takuti.me/note/coursera-recommender-systems/)
+[http://www.randpy.tokyo/entry/roc_auc](http://www.randpy.tokyo/entry/roc_auc)
+[https://datasciencemadesimpler.wordpress.com/tag/alternating-least-squares/](https://datasciencemadesimpler.wordpress.com/tag/alternating-least-squares/)
+[https://ameblo.jp/principia-ca/entry-10980281840.html](https://ameblo.jp/principia-ca/entry-10980281840.html)
+[http://hamukazu.com/2013/11/19/a-fast-parallel-sgd-for-matrix-factorization-in-shared-memory-systems/](http://hamukazu.com/2013/11/19/a-fast-parallel-sgd-for-matrix-factorization-in-shared-memory-systems/)
